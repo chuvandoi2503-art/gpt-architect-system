@@ -214,3 +214,65 @@ Không tạo framework mới nếu chưa chứng minh được giá trị.
 1.  Thiết kế WF\\\_PATCH\\\_V1.
 
 1.  Bắt đầu dựng n8n.
+2.  WF_CONSOLIDATE_MEMORY_V1
+
+TRẠNG THÁI
+
+BACKLOG
+
+ƯU TIÊN
+
+SAU PATCH / MERGE / ROLLBACK
+
+MỤC ĐÍCH
+
+Đọc các patch đã MERGED.
+
+Tổng hợp tri thức mới.
+
+Đề xuất cập nhật:
+
+* LM_04
+* LM_04.1
+* LM_03B
+
+NGUYÊN TẮC
+
+Patch là hàng đợi thay đổi.
+
+Patch không phải nơi lưu tri thức dài hạn.
+
+Tri thức dài hạn phải được hợp nhất vào:
+
+* 03B
+* 04
+* 04.1
+
+ĐẦU VÀO
+
+patches/*
+PATCH_STATUS = MERGED
+
+ĐẦU RA
+
+PATCH đề xuất cập nhật:
+
+LM_04
+LM_04.1
+LM_03B
+
+LỢI ÍCH
+
+* Không phải đọc hàng trăm patch cũ.
+* Không phải nạp toàn bộ patch vào GPT.
+* Giữ 03B gọn và chất lượng.
+* Giữ 04 phản ánh bài học thực tế.
+* Giữ 04.1 phản ánh trạng thái hiện tại.
+
+TIÊU CHÍ TRIỂN KHAI
+
+PATCH PASS
+MERGE PASS
+ROLLBACK PASS
+
+sau đó mới xây CONSOLIDATE.
