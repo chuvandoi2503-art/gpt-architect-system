@@ -9,22 +9,22 @@
   "targets": {
     "WM_03A_ARCH": {
       "gpt_id": "ARCH",
-      "path": "memory/WM_03A_ARCH.md",
+      "path": "memory/WM_03A_ARCH - BỘ NHỚ LÕI GPT KIẾN TRÚC SƯ.md",
       "allowed_actions": ["APPEND_ONLY"]
     },
     "WM_04_1_ARCH": {
       "gpt_id": "ARCH",
-      "path": "memory/WM_04_1_ARCH.md",
+      "path": "memory/WM_04_1_ARCH - TRẠNG THÁI CÔNG VIỆC ĐANG DỞ GPT KIẾN TRÚC SƯ.md",
       "allowed_actions": ["APPEND_ONLY"]
     },
     "LM_03B_ARCH": {
       "gpt_id": "ARCH",
-      "path": "memory/LM_03B_ARCH.md",
+      "path": "memory/LM_03B_ARCH - BỘ NHỚ DÀI HẠN GPT KIẾN TRÚC SƯ.md",
       "allowed_actions": ["APPEND_ONLY"]
     },
     "LM_04_ARCH": {
       "gpt_id": "ARCH",
-      "path": "memory/LM_04_ARCH.md",
+      "path": "memory/LM_04_ARCH - NHẬT KÝ HỌC TẬP GPT KIẾN TRÚC SƯ.md",
       "allowed_actions": ["APPEND_ONLY"]
     }
   }
