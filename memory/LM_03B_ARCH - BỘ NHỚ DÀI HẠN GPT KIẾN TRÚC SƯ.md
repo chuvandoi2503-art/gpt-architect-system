@@ -579,3 +579,148 @@ Không tạo SYSTEM_REGISTRY riêng ở V1.
 Lý do:
 
 Bộ file lõi hiện tại ít, ổn định và có thể quản lý bằng quy ước đặt tên chung.
+## BÀI HỌC XÁC NHẬN 00X - REGISTRY DRIVEN VÀ AUTOMATION SAFETY
+
+### REGISTRY DRIVEN
+
+Đã xác nhận sau khi hoàn thiện WF_PATCH_V1 và WF_MERGE_PATCH_V1.
+
+Workflow không được hardcode:
+
+* GPT_ID
+* TARGET_ID
+* File path
+* Mapping giữa TARGET_ID và file GitHub
+
+Workflow phải resolve dữ liệu thông qua:
+
+```text
+system/GPT_REGISTRY.json
+```
+
+Nguyên tắc:
+
+```text
+Registry = bản đồ thật cho workflow chạy
+Sticky Note = ghi chú cho con người
+```
+
+Khi thêm GPT mới:
+
+* Thêm GPT vào Registry
+* Thêm TARGET vào Registry
+* Không sửa logic workflow
+
+Mục tiêu:
+
+Một bộ workflow dùng chung cho nhiều GPT.
+
+---
+
+### AUTOMATION SAFETY FIRST
+
+Đã xác nhận.
+
+Rủi ro lớn nhất trong automation không phải lỗi code.
+
+Rủi ro lớn nhất là workflow sai tạo vòng lặp và tự khuếch đại lỗi.
+
+Checklist bắt buộc trước khi publish workflow:
+
+* Loop vô hạn
+* Trigger chéo
+* Workflow tự gọi lại chính nó
+* Retry vô hạn
+* Spam API
+* Ghi đè dữ liệu ngoài ý muốn
+* Không có điểm dừng
+* Không có khả năng rollback
+
+Thứ tự ưu tiên:
+
+```text
+Safety
+↓
+Validation
+↓
+Data Integrity
+↓
+Rollback
+↓
+Feature
+↓
+Optimization
+```
+
+Một workflow chỉ được xem là PASS khi:
+
+* Chạy đúng nghiệp vụ
+* Không tạo loop vô hạn
+* Không spam API
+* Không phá dữ liệu gốc
+* Có khả năng phát hiện lỗi
+* Có khả năng phục hồi
+
+---
+
+### PATCH KHÔNG PHẢI BỘ NHỚ CHÍNH
+
+Đã xác nhận.
+
+Patch là:
+
+* Change Log
+* Audit Log
+* Bằng chứng thay đổi
+* Nguồn dữ liệu để tổng hợp tri thức
+
+Patch không phải nơi lưu tri thức dài hạn.
+
+Phân vai:
+
+```text
+Patch = Raw Change / Evidence
+
+LM_04 = Nhật ký học tập đã tổng hợp
+
+LM_03B = Nguyên tắc đã xác nhận
+
+WM_04_1 = Trạng thái hiện tại
+```
+
+Không sử dụng Patch thay thế cho 03B, 04 hoặc 04.1.
+
+---
+
+### BACKUP AWARE MERGE
+
+Đã xác nhận.
+
+WF_MERGE_PATCH_V1 lưu thông tin backup vào patch sau khi merge.
+
+Thông tin lưu:
+
+```text
+PATCH_STATUS: MERGED
+
+ROLLBACK BACKUP
+BACKUP_CREATED_AT
+TARGET_PATH
+REGISTRY_VERSION
+PRE_MERGE_CONTENT
+```
+
+Mục tiêu:
+
+* Biết trạng thái file trước merge
+* Hỗ trợ rollback
+* Không phụ thuộc vào trí nhớ phiên chat
+* Không phụ thuộc vào GPT suy luận lại dữ liệu cũ
+
+KẾT LUẬN:
+
+WF_PATCH_V1 = PASS
+
+WF_MERGE_PATCH_V1 = PASS
+
+REGISTRY_DRIVEN_ARCHITECTURE = ĐÃ XÁC NHẬN
