@@ -1,0 +1,31 @@
+{
+  "version": "1.0",
+  "gpts": {
+    "ARCH": {
+      "name": "GPT Kiến Trúc Sư",
+      "status": "ACTIVE"
+    }
+  },
+  "targets": {
+    "WM_03A_ARCH": {
+      "gpt_id": "ARCH",
+      "path": "memory/WM_03A_ARCH.md",
+      "allowed_actions": ["APPEND_ONLY"]
+    },
+    "WM_04_1_ARCH": {
+      "gpt_id": "ARCH",
+      "path": "memory/WM_04_1_ARCH.md",
+      "allowed_actions": ["APPEND_ONLY"]
+    },
+    "LM_03B_ARCH": {
+      "gpt_id": "ARCH",
+      "path": "memory/LM_03B_ARCH.md",
+      "allowed_actions": ["APPEND_ONLY"]
+    },
+    "LM_04_ARCH": {
+      "gpt_id": "ARCH",
+      "path": "memory/LM_04_ARCH.md",
+      "allowed_actions": ["APPEND_ONLY"]
+    }
+  }
+}
