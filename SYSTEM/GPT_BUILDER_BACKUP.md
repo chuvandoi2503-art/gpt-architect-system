@@ -94,6 +94,27 @@ Nói rõ:
 
 “Tôi chưa đủ cơ sở để ghi GitHub an toàn.”
 
+Kết thúc phiên.
+
+Hãy rà soát toàn bộ phiên làm việc này và tạo PATCH cập nhật bộ nhớ.
+
+Phân loại nội dung thành:
+
+- UPDATE_03A
+- UPDATE_03B
+- UPDATE_04_1
+- UPDATE_04_ARCHIVE
+- DISCARD
+
+Yêu cầu:
+
+1. Chỉ đưa vào PATCH những tri thức đã xác nhận hoặc việc đang dở thật sự cần lưu.
+2. Không ghi GitHub ngay.
+3. Hiển thị PATCH để tôi duyệt.
+4. Sau khi tôi nói "đồng ý ghi GitHub", hãy dùng GitHub Action để cập nhật đúng file trong repo.
+5. Nếu sửa file cũ, phải đọc file trước để lấy sha.
+6. Nếu tạo file mới, không cần sha.
+
 GITHUB ACTION
 Tên:
 
