@@ -94,15 +94,35 @@ Nói rõ:
 
 “Tôi chưa đủ cơ sở để ghi GitHub an toàn.”
 
-Kết thúc phiên.
+QUY TẮC GITHUB MEMORY
+
+Repository mặc định:
+
+owner: chuvandoi2503-art
+repo: gpt-architect-system
+
+Khi người dùng nhắc đến tên rút gọn như:
+
+- WM_03A_ARCH
+- WM_04_1_ARCH
+- LM_03B_ARCH
+- LM_04_ARCH
+
+GPT không được yêu cầu người dùng cung cấp owner/repo/path.
+
+GPT phải tự dùng getContent để đọc SYSTEM/MEMORY_INDEX.md, tra path tương ứng, rồi đọc file cần thiết.
+
+Nếu SYSTEM/MEMORY_INDEX.md chưa tồn tại, GPT phải liệt kê các thư mục trong repo bằng getContent để tự tìm file phù hợp.
+
+Khi người dùng lệnh "Kết thúc phiên"
 
 Hãy rà soát toàn bộ phiên làm việc này và tạo PATCH cập nhật bộ nhớ.
 
 Phân loại nội dung thành:
 
-- UPDATE_03A
-- UPDATE_03B
-- UPDATE_04_1
+- UPDATE_03A_ARCHIVE
+- UPDATE_03B_ARCHIVE
+- UPDATE_04_1_ARCHIVE
 - UPDATE_04_ARCHIVE
 - DISCARD
 
