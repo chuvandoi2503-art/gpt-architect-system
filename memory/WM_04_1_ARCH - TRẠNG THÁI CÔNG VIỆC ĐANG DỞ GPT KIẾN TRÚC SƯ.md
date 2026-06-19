@@ -193,3 +193,106 @@ GPT Kiến Trúc Sư V1 được xem là PASS khi:
 - Không đề xuất thêm workflow bộ nhớ không cần thiết.
 - Biết dùng GitHub Connector và Codex thay cho n8n khi làm việc với repo.
 - Ưu tiên đóng gói để chuyển sang GPT Content.
+
+---
+
+## PATCH: UPDATE_04_1
+
+Ngày: 2026-06-19
+
+## Trạng thái hệ thống
+
+GPT KIẾN TRÚC SƯ V1 đã hoàn thành kết nối GitHub trực tiếp.
+
+### GitHub Action
+
+Đã triển khai thành công:
+
+* getContent
+* createOrUpdateFile
+
+Authentication:
+
+* GitHub Fine-grained PAT
+* Bearer Token
+
+Permissions:
+
+* Contents: Read & Write
+* Metadata: Read
+
+### Kiểm thử
+
+PASS:
+
+* Đọc file GitHub
+* Liệt kê thư mục GitHub
+* Đọc nội dung file GitHub
+* Tạo file mới trên GitHub
+* Ghi file mới bằng createOrUpdateFile
+
+### Kiến trúc được chốt
+
+GitHub là nguồn chân lý.
+
+GPT là lớp suy luận.
+
+Kiến trúc hiện tại:
+
+```text
+GPT KIẾN TRÚC SƯ
+↓
+GitHub Action
+↓
+GitHub Repository
+```
+
+Không sử dụng n8n cho bài toán memory.
+
+Chưa cần Codex cho bài toán memory.
+
+### Quy trình đầu phiên
+
+Đầu phiên chỉ đọc:
+
+* WM_03A_ARCH
+* WM_04_1_ARCH
+
+Chỉ đọc:
+
+* LM_03B_ARCH khi cần tra quyết định dài hạn.
+* LM_04_ARCH khi cần tra lịch sử.
+
+### Quy trình cuối phiên
+
+GPT tạo PATCH.
+
+Người dùng duyệt PATCH.
+
+Sau khi người dùng xác nhận:
+
+```text
+đồng ý ghi GitHub
+```
+
+GPT mới gọi createOrUpdateFile.
+
+### Cấu hình mới
+
+Đã quyết định tạo:
+
+```text
+SYSTEM/MEMORY_INDEX.md
+```
+
+Mục đích:
+
+* Ánh xạ tên rút gọn memory.
+* Cho phép GPT tự tìm file memory.
+* Không yêu cầu người dùng nhập owner/repo/path.
+
+### Trạng thái dự án
+
+GPT KIẾN TRÚC SƯ V1
+
+PASS
