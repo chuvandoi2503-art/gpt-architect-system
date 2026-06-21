@@ -1,4 +1,4 @@
-# LM_03B_ARCH_CURRENT
+# LM_03B_ARCH_CURRENT - TRI THỨC ĐÃ KIỂM CHỨNG GPT KIẾN TRÚC SƯ
 
 Phiên bản: 03.001
 
@@ -6,54 +6,24 @@ Phiên bản: 03.001
 
 # MỤC ĐÍCH
 
-Lưu:
+Lưu các tri thức đã được xác nhận và còn cần sử dụng thường xuyên.
 
-- Tri thức đã kiểm chứng
-- Kiến trúc đã xác nhận
-- Quy trình đã xác nhận
-- Workflow đã xác nhận
+File này được phép nạp đầu phiên.
 
-Có thể nạp đầu phiên.
+Nguyên tắc:
 
----
+- Ngắn.
+- Ổn định.
+- Giá trị vận hành cao.
+- Không biến thành kho tri thức vô hạn.
 
-# TRI THỨC ĐÃ KIỂM CHỨNG
+Các tri thức nền chi tiết được chuyển sang:
 
-## Core Repository + Runtime Repository
-
-Trạng thái:
-
-Đã xác nhận.
-
-Kiến trúc chuẩn:
-
-Core Repository
-
-+
-
-Runtime Repository
-
-Ví dụ:
-
-gpt-system-core
-
-+
-
-gpt-architect-system
-
-hoặc
-
-gpt-system-core
-
-+
-
-gpt-content-director-system
+LM_03B_ARCH_ARCHIVE_001
 
 ---
 
-## GitHub Là Nguồn Chân Lý
-
-Trạng thái:
+# 1. GITHUB LÀ NGUỒN CHÂN LÝ
 
 Đã xác nhận.
 
@@ -79,13 +49,48 @@ Knowledge Upload không phải nguồn chân lý.
 
 ---
 
-## Cấu Trúc Memory Chuẩn
-
-Trạng thái:
+# 2. GPT LÀ LỚP SUY LUẬN
 
 Đã xác nhận.
 
-Runtime Repository sử dụng:
+GPT dùng để:
+
+- Suy luận
+- Phân tích
+- Đề xuất
+- Hỗ trợ quyết định
+
+GPT không phải:
+
+- Kho lưu trữ
+- Git
+- Hệ quản lý phiên bản
+
+---
+
+# 3. KIẾN TRÚC HỆ THỐNG CHUẨN
+
+Đã xác nhận.
+
+Core Repository
+
++
+
+Runtime Repository
+
+Ví dụ:
+
+gpt-system-core
+
++
+
+gpt-architect-system
+
+---
+
+# 4. KIẾN TRÚC MEMORY CHUẨN
+
+Đã xác nhận.
 
 memory/
 
@@ -96,152 +101,283 @@ memory/
 
 ---
 
-## Working Memory Tách DAILY Và LONG
+Working Memory:
 
-Trạng thái:
+- WM_03A
+- WM_04_1_DAILY
+- WM_04_1_LONG
+
+---
+
+Long-term Memory:
+
+- LM_03B_CURRENT
+- LM_03B_ARCHIVE
+
+- LM_04_CURRENT
+- LM_04_ARCHIVE
+
+---
+
+# 5. KHỞI TẠO PHIÊN TỐI THIỂU
 
 Đã xác nhận.
 
-WM_04_1_DAILY
+Nạp:
 
-Dùng cho:
+- RULE_COMMON
+- RULE_ARCH
+- WM_03A_ARCH
+- WM_04_1_ARCH_DAILY
+- LM_03B_ARCH_CURRENT
 
-- Việc đang làm
-- Việc đang dở gần nhất
+Không nạp mặc định:
 
-Nạp đầu phiên.
-
----
-
-WM_04_1_LONG
-
-Dùng cho:
-
-- Dự án
-- Backlog
-- Công việc tuần
-- Công việc tháng
-- Công việc quý
-
-Không nạp mặc định đầu phiên.
+- WM_04_1_ARCH_LONG
+- LM_03B_ARCH_ARCHIVE
+- LM_04_ARCH_CURRENT
+- LM_04_ARCH_ARCHIVE
 
 ---
 
-## LM_03B Chia CURRENT Và ARCHIVE
-
-Trạng thái:
+# 6. NGUYÊN TẮC QC
 
 Đã xác nhận.
 
-CURRENT
+Chỉ sử dụng:
 
-Dùng cho:
+- PASS
+- PASS CÓ LƯU Ý
+- FAIL
 
-- Tri thức mới xác nhận
-- Quy trình mới xác nhận
+Nếu kết luận PASS:
 
-Có thể nạp đầu phiên.
+Không tiếp tục đề xuất sửa bắt buộc trong cùng lần QC.
 
----
+Nếu còn lỗi bắt buộc sửa:
 
-ARCHIVE
-
-Dùng cho:
-
-- Tri thức ổn định
-- Tri thức ít thay đổi
-
-Không nạp đầu phiên.
+Kết luận FAIL.
 
 ---
 
-## LM_04 Chia CURRENT Và ARCHIVE
-
-Trạng thái:
+# 7. NGUYÊN TẮC HỌC TẬP
 
 Đã xác nhận.
 
-CURRENT
+Tri thức mới phải đi qua:
 
-Dùng cho:
+Quan sát
 
-- Nhật ký gần đây
-- Kết quả kiểm chứng gần đây
+↓
+
+Giả thuyết
+
+↓
+
+Kiểm chứng
+
+↓
+
+Xác nhận
+
+↓
+
+Tri thức đã xác nhận
+
+Không biến giả thuyết thành tri thức.
 
 ---
 
-ARCHIVE
-
-Dùng cho:
-
-- Lịch sử cũ
-- Nhật ký cũ
-
-Không nạp đầu phiên.
-
----
-
-## Không Lưu Patch Tồn Đọng
-
-Trạng thái:
+# 8. ƯU TIÊN KIẾN TRÚC
 
 Đã xác nhận.
-
-PATCH chỉ là cơ chế trung gian.
-
-Sau khi ghi GitHub:
-
-PATCH hoàn tất.
-
-Không tạo:
-
-- Patch backlog
-- Patch archive
-- Patch repository
-
----
-
-## Một Nguồn Chân Lý
-
-Trạng thái:
-
-Đã xác nhận.
-
-Không tạo nhiều file cùng mô tả một kiến trúc.
 
 Ưu tiên:
 
-Một kiến trúc
+Kiến trúc
 
 ↓
 
-Một file
+Quy trình
 
 ↓
 
-Một nguồn chân lý
+Dữ liệu
+
+↓
+
+Tác vụ
+
+Không tối ưu tác vụ làm hỏng kiến trúc.
 
 ---
 
-# QUY TẮC TỔNG HỢP
+# 9. MỘT GPT MẪU TRƯỚC
 
-Khi LM_03B_CURRENT quá lớn:
+Đã xác nhận.
 
-- Tổng hợp
-- Rút gọn
-- Chuyển tri thức ổn định sang LM_03B_ARCHIVE
+Ưu tiên:
 
-Không để CURRENT tăng trưởng vô hạn.
+GPT KIẾN TRÚC SƯ
+
+↓
+
+Hoàn thiện framework
+
+↓
+
+Kiểm chứng thực tế
+
+↓
+
+Nhân bản GPT khác
 
 ---
 
-# KHÔNG LƯU
+# 10. PHÂN LOẠI MEMORY
 
-Không lưu:
+Đã xác nhận.
 
-- Ý tưởng
-- Giả thuyết
-- Suy đoán
-- Nội dung chưa kiểm chứng
+03A
 
-Chỉ lưu nội dung đã được xác nhận trong thực tế vận hành.
+=
+
+Điều GPT phải nhớ để vận hành.
+
+03B
+
+=
+
+Điều hệ thống đã biết chắc.
+
+04.1
+
+=
+
+Điều đang làm.
+
+04
+
+=
+
+Điều đã học được.
+
+Không trộn vai trò giữa các lớp bộ nhớ.
+
+---
+
+# 11. REVIEW KIẾN TRÚC THEO VÒNG ĐỜI
+
+Đã xác nhận.
+
+Mọi kiến trúc mới phải review:
+
+- Rủi ro triển khai
+- Rủi ro mở rộng
+- Rủi ro dài hạn
+
+Trước khi build.
+
+---
+
+# 12. REGISTRY DRIVEN ARCHITECTURE
+
+Đã xác nhận.
+
+Workflow không được hardcode:
+
+- GPT_ID
+- TARGET_ID
+- Path GitHub
+
+Workflow phải resolve thông qua Registry.
+
+Mục tiêu:
+
+Một workflow dùng được cho nhiều GPT.
+
+---
+
+# 13. AUTOMATION SAFETY FIRST
+
+Đã xác nhận.
+
+Thứ tự ưu tiên:
+
+Safety
+
+↓
+
+Validation
+
+↓
+
+Data Integrity
+
+↓
+
+Rollback
+
+↓
+
+Feature
+
+↓
+
+Optimization
+
+---
+
+# 14. WF_PATCH_V1
+
+Đã xác nhận.
+
+PASS thực tế.
+
+GPT không ghi trực tiếp file gốc.
+
+Patch là đơn vị thay đổi chuẩn.
+
+---
+
+# 15. WF_MERGE_PATCH_V1
+
+Đã xác nhận.
+
+PASS thực tế.
+
+Patch phải được duyệt trước khi merge.
+
+Patch đã MERGED không được merge lại.
+
+---
+
+# 16. WF_ROLLBACK_V1
+
+Đã xác nhận.
+
+PASS CÓ LƯU Ý.
+
+Rollback bằng commit mới.
+
+Không dùng git reset.
+
+Không phá lịch sử Git.
+
+---
+
+# 17. PATCH KHÔNG PHẢI BỘ NHỚ
+
+Đã xác nhận.
+
+Patch là:
+
+- Change Log
+- Audit Log
+- Bằng chứng thay đổi
+
+Patch không phải:
+
+- Working Memory
+- Long-term Memory
+- Knowledge
