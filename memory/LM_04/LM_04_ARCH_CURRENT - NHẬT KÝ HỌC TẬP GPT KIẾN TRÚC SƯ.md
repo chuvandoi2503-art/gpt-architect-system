@@ -1,4 +1,4 @@
-# LM_04_ARCH_CURRENT
+# LM_04_ARCH_CURRENT - NHẬT KÝ HỌC TẬP GPT KIẾN TRÚC SƯ
 
 Phiên bản: 03.001
 
@@ -8,26 +8,30 @@ Phiên bản: 03.001
 
 Lưu:
 
-- Bài học triển khai
-- Kết quả kiểm chứng
-- Lỗi hệ thống đã phát hiện
-- Kinh nghiệm vận hành
+- Bài học gần đây
+- Kết quả kiểm chứng gần đây
+- Phát hiện kiến trúc mới
+- Kinh nghiệm vận hành mới
 
-Không dùng để lưu tri thức đã xác nhận lâu dài.
+File này được phép đọc khi cần hiểu bối cảnh phát triển gần đây.
 
-Các tri thức ổn định phải chuyển sang:
+Không dùng để lưu tri thức nền ổn định.
 
-LM_03B_CURRENT
+Các tri thức đã xác nhận phải chuyển sang:
+
+LM_03B_ARCH_CURRENT
+
+hoặc
+
+LM_03B_ARCH_ARCHIVE
 
 ---
 
-# NHẬT KÝ HỌC TẬP
-
-## Bài học 001
+# BÀI HỌC 001
 
 Chủ đề:
 
-Tách Core Repository khỏi Runtime Repository
+Tách Core Repository khỏi Runtime Repository.
 
 Kết quả:
 
@@ -35,27 +39,22 @@ PASS
 
 Bài học:
 
-Khi số lượng GPT tăng lên, việc đặt:
+Core Repository giúp:
 
-- RULE_COMMON
-- MEMORY_ARCHITECTURE
-- MEMORY_INDEX
-- PATCH_STANDARD
-- NAMING_CONVENTION
+- Dùng chung quy tắc
+- Dùng chung kiến trúc
+- Dùng chung schema
+- Dễ nhân bản GPT mới
 
-vào một Core Repository riêng giúp:
-
-- Dễ nhân bản
-- Dễ bảo trì
-- Giảm trùng lặp
+Runtime Repository chỉ chứa dữ liệu riêng của từng GPT.
 
 ---
 
-## Bài học 002
+# BÀI HỌC 002
 
 Chủ đề:
 
-Memory tăng trưởng vô hạn
+Memory tăng trưởng vô hạn.
 
 Kết quả:
 
@@ -91,11 +90,11 @@ CURRENT + ARCHIVE
 
 ---
 
-## Bài học 003
+# BÀI HỌC 003
 
 Chủ đề:
 
-Khởi tạo phiên quá tải
+Khởi tạo phiên quá tải.
 
 Kết quả:
 
@@ -103,25 +102,25 @@ PASS
 
 Bài học:
 
-Không nên nạp toàn bộ memory đầu phiên.
+Không nạp toàn bộ memory đầu phiên.
 
 Nạp tối thiểu:
 
 - RULE_COMMON
-- RULE_<GPT>
-- WM_03A
-- WM_04_1_DAILY
-- LM_03B_CURRENT
+- RULE_ARCH
+- WM_03A_ARCH
+- WM_04_1_ARCH_DAILY
+- LM_03B_ARCH_CURRENT
 
 Các file khác chỉ đọc khi cần.
 
 ---
 
-## Bài học 004
+# BÀI HỌC 004
 
 Chủ đề:
 
-PATCH tồn đọng
+PATCH không phải bộ nhớ.
 
 Kết quả:
 
@@ -129,11 +128,13 @@ PASS
 
 Bài học:
 
-PATCH không phải bộ nhớ.
+PATCH chỉ là cơ chế thay đổi.
 
-PATCH không phải nguồn chân lý.
+PATCH không phải:
 
-PATCH chỉ tồn tại trong phiên hiện tại.
+- Knowledge
+- Working Memory
+- Long-term Memory
 
 Sau khi ghi GitHub:
 
@@ -141,11 +142,11 @@ PATCH hoàn tất.
 
 ---
 
-## Bài học 005
+# BÀI HỌC 005
 
 Chủ đề:
 
-Tổ chức thư mục memory
+Workflow nên được review trước khi build.
 
 Kết quả:
 
@@ -153,105 +154,233 @@ PASS
 
 Bài học:
 
-Không nên đặt toàn bộ file trong:
+Thứ tự đúng:
 
-memory/
+Thiết kế
 
-Giải pháp đã xác nhận:
+↓
 
-memory/
+QC kiến trúc
 
-├── WM_03A/
-├── WM_04_1/
-├── LM_03B/
-└── LM_04/
+↓
 
-Giúp:
+Review Failure Cases
 
-- Dễ tìm kiếm
-- Dễ archive
+↓
+
+Review Rollback Cases
+
+↓
+
+Review Dependency
+
+↓
+
+Người dùng duyệt
+
+↓
+
+Build
+
+Không nên:
+
+Build
+
+↓
+
+Lỗi
+
+↓
+
+Sửa
+
+↓
+
+Lỗi tiếp
+
+---
+
+# BÀI HỌC 006
+
+Chủ đề:
+
+Workflow lỗi thường nằm ở dữ liệu hơn là code.
+
+Kết quả:
+
+PASS
+
+Bài học:
+
+Khi workflow lỗi:
+
+Ưu tiên kiểm tra:
+
+Kiến trúc dữ liệu
+
+↓
+
+Luồng dữ liệu
+
+↓
+
+Mapping
+
+↓
+
+Sau đó mới tới code
+
+---
+
+# BÀI HỌC 007
+
+Chủ đề:
+
+WF_PATCH_V1.
+
+Kết quả:
+
+PASS THỰC TẾ
+
+Đã kiểm chứng:
+
+- Webhook
+- Validate Input
+- Generate Patch
+- GitHub Create File
+- Auto Increment Patch Number
+- Build Response
+- Respond To Webhook
+
+Bài học:
+
+GPT không nên ghi trực tiếp file gốc.
+
+Patch là lớp trung gian phù hợp.
+
+---
+
+# BÀI HỌC 008
+
+Chủ đề:
+
+WF_MERGE_PATCH_V1.
+
+Kết quả:
+
+PASS THỰC TẾ
+
+Bài học:
+
+Patch phải được duyệt trước khi merge.
+
+Patch đã MERGED không được merge lại.
+
+GitHub giữ lịch sử thay đổi.
+
+Người dùng là người duyệt cuối cùng.
+
+---
+
+# BÀI HỌC 009
+
+Chủ đề:
+
+WF_ROLLBACK_V1.
+
+Kết quả:
+
+PASS CÓ LƯU Ý
+
+Bài học:
+
+Rollback bằng commit mới.
+
+Không dùng git reset.
+
+Không phá lịch sử Git.
+
+---
+
+# BÀI HỌC 010
+
+Chủ đề:
+
+Kiến trúc PATCH → MERGE → ROLLBACK.
+
+Kết quả:
+
+PASS
+
+Bài học:
+
+Một kiến trúc quản lý thay đổi hoàn chỉnh cần:
+
+PATCH
+
+↓
+
+APPROVE
+
+↓
+
+MERGE
+
+↓
+
+ROLLBACK
+
+Trong đó:
+
+- PATCH tạo thay đổi
+- APPROVE xác nhận thay đổi
+- MERGE áp dụng thay đổi
+- ROLLBACK khôi phục thay đổi
+
+---
+
+# BÀI HỌC 011
+
+Chủ đề:
+
+Registry Driven Architecture.
+
+Kết quả:
+
+PASS
+
+Bài học:
+
+Workflow không nên hardcode:
+
+- GPT_ID
+- TARGET_ID
+- GitHub Path
+
+Workflow nên resolve thông qua Registry.
+
+Điều này giúp:
+
 - Dễ mở rộng
+- Dễ nhân bản
+- Không sửa workflow khi thêm GPT mới
 
 ---
 
-## Bài học 006
+# TRẠNG THÁI
 
-Chủ đề:
+File này chỉ giữ các bài học còn giá trị vận hành gần đây.
 
-Quy tắc archive
+Khi quá lớn:
 
-Kết quả:
+Tổng hợp
 
-PASS
+↓
 
-Bài học:
+Rút gọn
 
-LM_03B_ARCHIVE
+↓
 
-Chia theo:
+Chuyển sang:
 
-- Chủ đề
-
-Không chia theo:
-
-- Thời gian
-
----
-
-LM_04_ARCHIVE
-
-Chia theo:
-
-- Thời gian
-
-Ví dụ:
-
-LM_04_ARCHIVE_2026_06
-
-LM_04_ARCHIVE_2026_07
-
-LM_04_ARCHIVE_2026_08
-
----
-
-# QUY TẮC CHUYỂN DỮ LIỆU
-
-Nếu bài học trở thành:
-
-- Quy trình chuẩn
-- Kiến trúc chuẩn
-- Tri thức ổn định
-
-Thì chuyển sang:
-
-LM_03B_CURRENT
-
----
-
-# QUY TẮC TỔNG HỢP
-
-Khi LM_04_CURRENT quá lớn:
-
-- Tổng hợp
-- Rút gọn
-- Chuyển sang LM_04_ARCHIVE_YYYY_MM
-
-Không để CURRENT tăng trưởng vô hạn.
-
----
-
-# KHÔNG LƯU
-
-Không lưu:
-
-- Công việc đang dở
-- Backlog
-- Dự án đang triển khai
-
-Các nội dung đó thuộc:
-
-WM_04_1_DAILY
-
-hoặc
-
-WM_04_1_LONG
+LM_04_ARCH_ARCHIVE_YYYY_MM
