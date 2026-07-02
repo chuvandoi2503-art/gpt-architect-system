@@ -365,6 +365,155 @@ Workflow nên resolve thông qua Registry.
 - Dễ nhân bản
 - Không sửa workflow khi thêm GPT mới
 
+# Phiên: Thiết kế Framework QC nhiều tầng và GPT Research
+
+## Phát hiện 1
+
+QC theo tầng kiến trúc giúp GPT tránh tối ưu cục bộ.
+
+Không nên đi từ Input → Output khi người dùng đang xây hệ thống.
+
+GPT cần QC từ tầng rộng xuống tầng hẹp trước khi kết luận.
+
+Trạng thái:
+
+Đã xác nhận.
+
+Đã đề xuất cập nhật RULE_COMMON và RULE_ARCH.
+
+---
+
+## Phát hiện 2
+
+Phản biện nên dựa trên tầng kiến trúc thay vì dựa trên ý tưởng vừa được đưa ra.
+
+Phản biện phải chỉ rõ:
+
+- đang bảo vệ tầng nào;
+- thay đổi ảnh hưởng tầng nào;
+- đánh đổi là gì;
+- phạm vi ảnh hưởng ra sao.
+
+Trạng thái:
+
+Đã xác nhận.
+
+Đã đề xuất cập nhật RULE_COMMON và RULE_ARCH.
+
+---
+
+## Phát hiện 3
+
+Engine không phải Format.
+
+Engine là cơ chế tạo ra giá trị lặp lại.
+
+Series, Format và Output được sinh ra từ Engine.
+
+Trạng thái:
+
+Đã xác nhận trong framework kiến trúc.
+
+Cần kiểm chứng thêm ở các lĩnh vực ngoài Content.
+
+---
+
+## Phát hiện 4
+
+Research không phải một tầng bắt buộc của framework.
+
+Research là một workflow được kích hoạt khi tri thức hiện tại chưa đủ.
+
+Content Director không thực hiện Research.
+
+Content Director chỉ xác định Research Requirement.
+
+Trạng thái:
+
+Giả thuyết mạnh.
+
+Đã lưu vào LM_03B để tiếp tục kiểm chứng.
+
+---
+
+## Phát hiện 5
+
+GPT điều phối không nên sở hữu toàn bộ tri thức.
+
+GPT điều phối nên biết:
+
+- Current State.
+- Goal.
+- Tri thức còn thiếu.
+- Khi nào cần Research.
+
+Tri thức chuyên môn nên được quản lý bởi GPT Research hoặc nguồn tri thức chuyên trách.
+
+Trạng thái:
+
+Giả thuyết mạnh.
+
+Chưa nâng thành Rule.
+
+---
+
+## Phát hiện 6
+
+Roadmap hoặc State Model có thể trở thành Source of Truth cho các hệ thống học tập dài hạn.
+
+GPT điều phối không cần nhớ toàn bộ kiến thức.
+
+Chỉ cần định vị:
+
+- đang ở milestone nào;
+- cần input gì ở milestone đó;
+- mục tiêu tiếp theo là gì.
+
+Trạng thái:
+
+Giả thuyết mạnh.
+
+Sẽ kiểm chứng khi xây GPT Research.
+
+---
+
+## Phát hiện 7
+
+GPT Research không nên được định nghĩa là GPT "nghiên cứu mọi thứ".
+
+Định nghĩa phù hợp hơn:
+
+GPT nghiên cứu có hệ thống để tạo:
+
+- Knowledge Roadmap.
+- Milestone.
+- Tiêu chí hoàn thành.
+- Checklist đánh giá.
+- Lỗi thường gặp.
+- Knowledge Structure.
+
+Content OS chỉ là một khách hàng nội bộ của GPT Research.
+
+Trạng thái:
+
+Đã thống nhất hướng.
+
+Sẽ thiết kế ROLE + SCOPE + OUTPUT ở phiên sau.
+
+---
+
+## Bài học của phiên
+
+Giá trị lớn nhất của GPT điều phối không phải là biết nhiều.
+
+Giá trị lớn nhất là:
+
+- biết đang ở đâu;
+- biết cần gì tiếp theo;
+- biết khi nào phải dừng để yêu cầu tri thức còn thiếu.
+
+Đây có thể trở thành nguyên lý kiến trúc chung nếu được kiểm chứng trên nhiều GPT khác.
+
 ---
 
 # TRẠNG THÁI
