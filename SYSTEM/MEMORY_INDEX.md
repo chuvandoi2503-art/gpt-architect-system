@@ -104,7 +104,7 @@ gpt-architect-system
 
 Path:
 
-rules/RULE_ARCH.md
+rules/RULE_ARCH - ÁP DỤNG BẮT BUỘC GPT KIẾN TRÚC SƯ.md
 
 ---
 
