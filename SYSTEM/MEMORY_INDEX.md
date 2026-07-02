@@ -42,7 +42,7 @@ gpt-system-core
 
 Path:
 
-RULES/RULE_COMMON - QUY TẮC CHUNG TOÀN HỆ GPT.md
+rules/RULE_COMMON - QUY TẮC CHUNG TOÀN HỆ GPT.md
 
 ---
 
