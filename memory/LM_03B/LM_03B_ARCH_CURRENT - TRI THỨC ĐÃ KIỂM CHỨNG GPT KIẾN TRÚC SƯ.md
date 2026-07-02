@@ -280,104 +280,107 @@ Trước khi build.
 
 ---
 
-# 12. REGISTRY DRIVEN ARCHITECTURE
+# 12. GIẢ THUYẾT KIẾN TRÚC ĐANG KIỂM CHỨNG
 
-Đã xác nhận.
+## GPT điều phối không sở hữu toàn bộ tri thức
 
-Workflow không được hardcode:
+Giả thuyết:
 
-- GPT_ID
-- TARGET_ID
-- Path GitHub
+GPT điều phối không nên sở hữu toàn bộ tri thức chuyên môn.
 
-Workflow phải resolve thông qua Registry.
+GPT điều phối nên sở hữu:
 
-Mục tiêu:
+- Logic điều phối tri thức.
+- Khả năng xác định trạng thái hiện tại.
+- Khả năng xác định tri thức còn thiếu.
+- Khả năng yêu cầu research khi cần.
+- Khả năng dùng tri thức đã được cấu trúc để tạo output phù hợp.
 
-Một workflow dùng được cho nhiều GPT.
+Mức trạng thái:
 
----
+Giả thuyết mạnh, đã có bằng chứng ban đầu từ thiết kế Content OS.
 
-# 13. AUTOMATION SAFETY FIRST
+Chưa nâng lên RULE_COMMON.
 
-Đã xác nhận.
+## Research Requirement khác Research
 
-Thứ tự ưu tiên:
+Giả thuyết:
 
-Safety
+GPT điều phối có thể tạo Research Requirement nhưng không nhất thiết phải thực hiện Research.
 
+Research có thể do:
+
+- GPT Research.
+- Người dùng.
+- Chuyên gia.
+- Internet.
+- Sách.
+- Nguồn dữ liệu khác.
+
+Mức trạng thái:
+
+Giả thuyết mạnh, cần kiểm chứng thêm khi thiết kế GPT Research.
+
+## Roadmap / State Model là nguồn định vị
+
+Giả thuyết:
+
+Với hệ thống dài hạn, GPT không cần nhớ toàn bộ tri thức.
+
+GPT cần biết:
+
+- Roadmap.
+- Current State.
+- Milestone hiện tại.
+- Tiêu chí hoàn thành.
+- Input phù hợp với mốc hiện tại.
+
+Output nên được sinh từ:
+
+Current State
++
+Roadmap / State Model
+
+Không nên sinh từ trí nhớ rời rạc.
+
+Mức trạng thái:
+
+Giả thuyết mạnh, cần kiểm chứng trên GPT Research, Content OS và các GPT khác.
+
+## Research là workflow kích hoạt theo nhu cầu
+
+Giả thuyết:
+
+Research không phải tầng cố định trong mọi framework.
+
+Research là workflow được kích hoạt khi Engine, Roadmap hoặc Requirement cho thấy tri thức hiện tại chưa đủ.
+
+Luồng đề xuất:
+
+Engine
 ↓
 
-Validation
+Có cần Research không?
 
+Nếu không:
 ↓
 
-Data Integrity
+Series / Module
 
+Nếu có:
 ↓
 
-Rollback
-
+Sinh Research Requirement
 ↓
 
-Feature
-
+Research
 ↓
 
-Optimization
+Cập nhật Roadmap / Knowledge Structure
+↓
 
----
+Quay lại thiết kế triển khai
 
-# 14. WF_PATCH_V1
+Mức trạng thái:
 
-Đã xác nhận.
-
-PASS thực tế.
-
-GPT không ghi trực tiếp file gốc.
-
-Patch là đơn vị thay đổi chuẩn.
-
----
-
-# 15. WF_MERGE_PATCH_V1
-
-Đã xác nhận.
-
-PASS thực tế.
-
-Patch phải được duyệt trước khi merge.
-
-Patch đã MERGED không được merge lại.
-
----
-
-# 16. WF_ROLLBACK_V1
-
-Đã xác nhận.
-
-PASS CÓ LƯU Ý.
-
-Rollback bằng commit mới.
-
-Không dùng git reset.
-
-Không phá lịch sử Git.
-
----
-
-# 17. PATCH KHÔNG PHẢI BỘ NHỚ
-
-Đã xác nhận.
-
-Patch là:
-
-- Change Log
-- Audit Log
-- Bằng chứng thay đổi
-
-Patch không phải:
-
-- Working Memory
-- Long-term Memory
-- Knowledge
+Giả thuyết mạnh, chưa đưa vào RULE_COMMON.
