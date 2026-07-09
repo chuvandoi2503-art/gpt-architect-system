@@ -20,119 +20,151 @@ Không dùng để lưu tri thức.
 
 ---
 
-# VIỆC CẦN LÀM PHIÊN SAU
+# CÔNG VIỆC ĐÃ HOÀN THÀNH
 
-## Thiết kế GPT Research
+## 1. GPT Research V1
 
 Trạng thái:
 
-Cần bắt đầu ở phiên sau.
+PASS
 
-Mục tiêu phiên sau:
+Đã chốt kiến trúc vận hành:
 
-Thiết kế ROLE + SCOPE + OUTPUT chuẩn của GPT Research.
+- Research chỉ nhận Research Request.
+- Knowledge Gap do GPT Content xác định.
+- Research không QC Profile.
+- Research chỉ QC chất lượng viên gạch.
+- Research trả Research Package.
+- Bổ sung Definition of Done.
+- Hoàn thiện RULE_RESEARCH V1.
 
-Chưa tạo GPT ngay nếu chưa chốt kiến trúc.
+---
 
-## Định nghĩa sơ bộ GPT Research
+## 2. Kiến trúc Content
 
-GPT Research không phải GPT trả lời mọi thứ.
+Trạng thái:
 
-GPT Research là GPT nghiên cứu có hệ thống để tạo cấu trúc tri thức phục vụ học sâu và triển khai dài hạn.
+PASS
 
-GPT Research có thể phục vụ nhiều lĩnh vực:
+Đã thống nhất luồng vận hành:
 
-- Song ngữ.
-- AI.
-- Sales.
-- Content.
-- Automation.
-- Các lĩnh vực khác cần nghiên cứu sâu.
+Input thật
 
-Content OS chỉ là một khách hàng nội bộ của GPT Research.
+↓
 
-## ROLE cần thiết kế
+QC Input
 
-GPT Research là chuyên gia:
+↓
 
-- Nghiên cứu có hệ thống.
-- Cấu trúc hóa tri thức.
-- Tạo roadmap kiến thức.
-- Tạo milestone.
-- Xác định tiêu chí hoàn thành.
-- Xác định lỗi thường gặp.
-- Tạo checklist đánh giá.
-- Tạo khung học sâu cho một lĩnh vực.
+Xác định Profile
 
-GPT Research không sở hữu nhiệm vụ tạo content.
+↓
 
-GPT Research không thay Content Director.
+Tra Profile
 
-GPT Research tạo input tri thức có cấu trúc để GPT khác hoặc người dùng sử dụng.
+↓
 
-## SCOPE cần thiết kế
+Knowledge Gap
 
-GPT Research được phép:
+↓
 
-- Nghiên cứu một lĩnh vực theo yêu cầu.
-- Tạo Knowledge Roadmap.
-- Tạo Learning Roadmap.
-- Tạo tiêu chí hoàn thành từng mốc.
-- Tạo checklist đánh giá.
-- Chỉ ra lỗi, rủi ro, ngộ nhận thường gặp.
-- Đề xuất nguồn cần kiểm chứng.
-- Tạo Research Output dùng được cho GPT khác.
+Research Request
 
-GPT Research không nên:
+↓
 
-- Tự biến thành GPT biết mọi lĩnh vực.
-- Tạo content thay GPT Content.
-- Tự quyết định business strategy.
-- Tự mở rộng phạm vi nếu chưa được yêu cầu.
-- Trả lời cảm tính khi chưa đủ nguồn.
-- Biến research thành output rời rạc không có cấu trúc.
+Research
 
-## OUTPUT chuẩn cần thiết kế
+↓
 
-Output mặc định của GPT Research nên gồm:
+Research Package
 
-1. Bản đồ lĩnh vực.
-2. Roadmap kiến thức.
-3. Milestone.
-4. Tiêu chí hoàn thành từng milestone.
-5. Kiến thức nền bắt buộc.
-6. Lỗi thường gặp.
-7. Checklist đánh giá.
-8. Gợi ý nguồn nghiên cứu.
-9. Mức độ tin cậy.
-10. Khoảng trống tri thức cần bổ sung.
+↓
 
-## Use case đầu tiên
+Content
 
-Use case đầu tiên để thiết kế GPT Research:
+↓
 
-Cha và con cùng học song ngữ tiếng Anh từ con số 0.
+Kiến trúc nội dung
 
-Mục tiêu:
+↓
 
-Tạo roadmap học song ngữ thực tế để Content OS tuyến gia đình dùng làm xương sống định vị nội dung.
+Output
 
-Content OS không cần sở hữu toàn bộ tri thức song ngữ.
+↓
 
-Content OS chỉ cần biết:
+QC
 
-- Hai bố con đang ở mốc nào.
-- Mục tiêu mốc đó là gì.
-- Input phù hợp trong mốc đó là gì.
-- Output content nên ghi lại hành trình nào.
+↓
 
-## Câu hỏi mở phiên sau
+Đề xuất cập nhật Profile
 
-1. GPT Research nên có vai trò chính xác là gì?
-2. GPT Research nên trả về định dạng output chuẩn nào?
-3. Với use case song ngữ, roadmap cần chia theo tuổi, năng lực, thời gian hay tình huống sống?
-4. Current State của tuyến gia đình nên lưu ở đâu?
-5. Research Output nên lưu vào Knowledge, Memory hay file riêng?
+---
+
+# PHÁT HIỆN KIẾN TRÚC
+
+## 1.
+
+Knowledge Gap thuộc trách nhiệm của Content.
+
+Không thuộc Research.
+
+---
+
+## 2.
+
+Research chỉ chịu trách nhiệm:
+
+- Search.
+- Chuẩn hóa.
+- QC chất lượng viên gạch.
+- Đóng gói Research Package.
+
+---
+
+## 3.
+
+Profile sẽ là Domain Knowledge.
+
+Không còn được xem là Memory.
+
+---
+
+## 4.
+
+Không tạo Search Layer.
+
+Không tạo Index riêng.
+
+Quyết định giữ kiến trúc tối giản cho đến khi có điểm nghẽn thực tế.
+
+---
+
+# CÔNG VIỆC ĐANG DỞ
+
+Thiết kế PROFILE_STANDARD V1.
+
+Nội dung cần triển khai:
+
+- Taxonomy.
+- Chuẩn Data Brick.
+- Chuẩn Asset.
+- Quy tắc Content tra Profile.
+- Quy tắc cập nhật Profile.
+
+Đây là mục tiêu duy nhất của phiên tiếp theo.
+
+---
+
+# GHI CHÚ
+
+Không phát sinh thay đổi Core.
+
+Không phát sinh thay đổi Project.
+
+Không lưu tri thức dài hạn.
+
+Chỉ lưu trạng thái triển khai để tiếp tục phiên sau.
+
 ---
 
 # QUY TẮC
